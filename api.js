@@ -1,10 +1,10 @@
-function dirtyTrail(searchString) {
-	var trailURL = "https://trailapi-trailapi.p.mashape.com/?";url += '?' + $.param({'api-key': "IjC5nh65gVmshOq8obE7EgpkGZzyp1qHyQujsnUDDczZBYs4w8"});
-	var nothing = "nothing"
+function dirtyBrew(searchString) {
+	var brewURL = "http://api.brewerydb.com/v2/search?q=" + beerType + "&type=beer&key=7c2d81a2f0ae659b839207d3897e9ac1";
+	
 	$.ajax({
-		url: trailURL,
+		url: brewURL,
 		method: 'GET',
-	}).done(function(response){
-		console.log(response.docs.keywords);
+	}).done(function(data){
+		console.log();
 	});
 }
