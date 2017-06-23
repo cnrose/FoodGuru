@@ -1,18 +1,34 @@
+	var eatMe = $("#searchTerm").text();
+	
+	var wikiURL = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=500&titles=" + eatMe +"&format=json";
 
-	var wikiURL = "https://en.wikipedia.org/w/api.php";
-	wikiURL += '?' + $.param({
-    'action' : 'opensearch',
-    'search' : 'your_search_term',
-    'prop'  : 'revisions',
-    'rvprop' : 'content',
-    'format' : 'json',
-    'limit' : 10
-});
+
+    function wikiWiki() {
+		wikiURL += '?' + $.param({
+		   'action' : 'query',
+		   'search' : $("#searchTerm"),
+		   'prop'  : 'info',
+		   'format' : 'json',
+		   'limit' : 10
+		});
+	};
+
+	$("#searchTerm").empty();
 
  $.ajax( {
     url: wikiURL,
     dataType: 'jsonp',
-    success: function(data) {
-       console.log(data);
+    success: function(response) {
+       console.log(response);
+
+       for (var prop in response.query.pages) {
+       	console.log(prop);
+
+       	var result = response.query.pages[prop];
+       	console.log(result);
+
+       	$("#searchResults").html(result.extract);
+       };
     }
 } );
+
