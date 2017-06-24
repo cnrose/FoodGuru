@@ -1,0 +1,27 @@
+body{
+	background-image: url("../images/ingredients.png");
+    background-repeat: no-repeat; 
+    background-size: cover;
+    
+   
+}
+nav{
+    z-index: -1;
+}
+
+div.transparent {
+    background-color: transparent;
+}
+
+.container-fluid{
+    background-color: rgb(20, 30, 50);
+      
+      font-family: cursive;
+      font-size: 25px;
+      position: fixed;
+      z-index:99; 
+      height: 60px;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+}
