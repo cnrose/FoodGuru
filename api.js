@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
-  var eatMe = $("#searchTerm").text();
+  var eatMe = $("#ingredient-name-input").val().trim();
 
-  var queryURL = "https:www.googleapis.com/youtube/v3/search?&part=snippet&q=quinoa&key=AIzaSyCqtkizKR5dTv4AP90rXLCGNG9-LLIrG_Y";
+  var queryURL = "https:www.googleapis.com/youtube/v3/search?&part=snippet&q=" + eatMe + "&key=AIzaSyCqtkizKR5dTv4AP90rXLCGNG9-LLIrG_Y";
 
   $.ajax ({
     url: queryURL,
@@ -33,7 +33,7 @@ $(document).ready(function() {
 
 		wikiURL += '?' + $.param({
 		   'action' : 'query',
-		   'search' : $("#searchTerm"),
+		   'search' : $("#ingredient-name-input"),
 		   'prop'  : 'info',
 		   'format' : 'json',
 		   'limit' : 10
@@ -41,7 +41,7 @@ $(document).ready(function() {
 
 	};
 
-	$("#searchTerm").empty();
+	$("#ingredient-name-input").empty();
 
  	$.ajax( {
 	    url: wikiURL,
@@ -74,11 +74,13 @@ $(document).ready(function() {
 
     var database = firebase.database();
 
-    var ingredientName = "";
+    // var ingredientName = "";
+
+    eatMe = "";
 
     $("#add-ingredient-btn").on("click", function(event) {
         event.preventDefault();
-        ingredientName = $("#ingredient-name-input").val().trim();
+        // ingredientName = $("#ingredient-name-input").val().trim();
         database.ref().push({
             name: ingredientName,
         });
