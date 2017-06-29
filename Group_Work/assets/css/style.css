@@ -1,0 +1,55 @@
+body{
+	background-image: url("../images/ingredients.png");
+    background-repeat: no-repeat; 
+    background-size: cover;
+    
+   
+}
+nav{
+    z-index: -1;
+}
+
+div.transparent {
+    background-color: transparent;
+}
+
+.container-fluid{
+    background-color: rgb(20, 30, 50);
+      
+      font-family: cursive;
+      font-size: 25px;
+      position: fixed;
+      z-index:99; 
+      height: 60px;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+}
+#styling{
+  height: 500px;
+  background-color: rgba(255,255,255,0);
+}
+#title{
+  font-size: 28px;
+}
+.container-fluid {
+      background-color: rgb(20, 30, 50);
+      color: white;
+      font-family: cursive;
+      font-size: 25px;
+      position: scroll;
+    }
+.panel-default{
+  height: 250px;
+  background-color: gray;
+  font-family: cursive;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+}
+.navbar-brand {
+  font-size: 25px;
+}
+.navbar-form .form-control{
+  widows: 150%;
+}
