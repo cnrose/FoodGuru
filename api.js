@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   //initializing firebase
   var config = {
@@ -105,3 +106,4 @@ $(document).ready(function() {
         });
     };
 });
+
