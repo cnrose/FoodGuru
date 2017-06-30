@@ -21,12 +21,18 @@ $(document).ready(function() {
   $("#add-ingredient-btn").on("click", function(){
     event.preventDefault();
     eatMe = $("#ingredient-name-input").val().trim();
+    backgroundChange();
     youTubeCall();
     wikiCall();
     firebaseData();
     $("#ingredient-name-input").val("");
   });
 
+
+  //change background picture function
+  function backgroundChange() {
+    $("body").css("background-image", 'url("assets/images/concrete-texture.png")');
+  }
   //YouTube API Call & iFrame creation
     function youTubeCall() {
       
@@ -100,7 +106,7 @@ $(document).ready(function() {
         database.ref().on("child_added", function(childSnapshot, prevChildKey) {
             //console.log(childSnapshot.val());
             var ingredientName = childSnapshot.val().name;
-            console.log(ingredientName);
+            //console.log(ingredientName);
         
             $("#ingredient-name-input").html(childSnapshot.val().ingredientName);
         });
