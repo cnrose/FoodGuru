@@ -31,6 +31,7 @@ div.transparent {
 }
 #title{
   font-size: 28px;
+  color: white;
 }
 .container-fluid {
       background-color: rgb(20, 30, 50);
@@ -52,4 +53,7 @@ div.transparent {
 }
 .navbar-form .form-control{
   widows: 150%;
+}
+.about{
+  color:white;
 }
