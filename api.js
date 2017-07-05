@@ -26,10 +26,10 @@ $(document).ready(function() {
     firebaseData();
     $("#ingredient-name-input").val("");
 
-    // if ( eatMe == '') {
-    //   $('#inputError').text('**Please enter an ingredient**');
-    //   return false;
-    // }
+    if ( eatMe == '') {
+      $('#inputError').text('**Please enter an ingredient**');
+      return false;
+    }
   });
   
 
@@ -68,10 +68,10 @@ $(document).ready(function() {
         $(".videoResults").append(videoPlayer);
       };
 
-      // if ( eatMe == false) {
-      //   $('#youTubeError').text('**No ingredient found by that name. Please try another.**');
-      //   return false;
-      // }
+      if ( eatMe == false) {
+        $('#youTubeError').text('**No ingredient found by that name. Please try another.**');
+        return false;
+      }
     
     });  
   }; 
@@ -101,10 +101,10 @@ $(document).ready(function() {
                   $("#searchResults").html(result.extract);
               };
 
-              // if ( eatMe == false) {
-              //   $('#wikiError').text('**No ingredient found by that name. Please try another.**');
-              //   return false;
-              // }
+              if ( eatMe == false) {
+                $('#wikiError').text('**No ingredient found by that name. Please try another.**');
+                return false;
+              }
           }
       });
   }
