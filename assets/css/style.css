@@ -21,6 +21,7 @@ body{
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 20px;
   background-color: rgba(85,98,112, 0.7);
+  border-radius: 5px;
   
 }
 nav{
