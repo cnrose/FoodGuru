@@ -100,7 +100,7 @@ $(document).ready(function() {
                   console.log(result);
                   $("#searchResults").html(result.extract);
               };
-
+              // if wiki error...
               if ( eatMe == false) {
                 $('#wikiError').text('**No ingredient found by that name. Please try another.**');
                 return false;
