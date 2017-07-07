@@ -27,12 +27,10 @@ $(document).ready(function() {
       wikiCall();
       recordSearchTerm(eatMe);
     } else {
-      $("#ingredient-name-input").val("");
-      
+      $("#ingredient-name-input").val("");   
     }
-    //backgroundChange();
-    //
   });
+  
 
 
  //change background picture function
@@ -68,7 +66,7 @@ $(document).ready(function() {
        videoPlayer.attr("id", videoNum);
 
        videoPlayer.attr("src", videoUrl);
-
+        
        $(".videoResults").append(videoPlayer);
 
 
@@ -107,7 +105,6 @@ $(document).ready(function() {
   
  //logging search term into Firebase
   function recordSearchTerm(ingredientName) {
-
    database.ref().push({
       name: ingredientName
     });
@@ -128,4 +125,5 @@ $(document).ready(function() {
       }
   };
 });
+
 

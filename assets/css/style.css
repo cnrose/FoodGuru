@@ -55,6 +55,7 @@ header .header_bar {
   display: flex;
   align-items: center;
   box-shadow: 0 0 19px 18px rgba(43,48,52,0.05), 0 0 3px 4px rgba(43,48,52,0.05);
+
 }
 header .header_bar:before {
   content: "";
@@ -97,5 +98,5 @@ header .logo img {
   font-size: 20px;
   background-color: rgba(85,98,112, 0.7);
   border-radius: 5px;
-  
 }
+
