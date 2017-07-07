@@ -22,8 +22,20 @@ body{
   font-size: 20px;
   background-color: rgba(85,98,112, 0.7);
   border-radius: 5px;
-  
 }
+
+#searchTitle {
+  margin-top: 100px;
+  text-transform: uppercase;
+  font-family: 'Julius Sans One', sans-serif;
+  text-align: center;
+  font-size: 200px;
+}
+
+#wikiResults {
+  margin-top: 50px;
+}
+
 nav{
     z-index: -1;
 }
@@ -31,19 +43,6 @@ nav{
 div.transparent {
     background-color: transparent;
 }
-
-/*.container-fluid{
-    background-color: rgb(20, 30, 50);
-      
-      font-family: 'Roboto Condensed', sans-serif;
-      font-size: 25px;
-      position: fixed;
-      z-index:99; 
-      height: 60px;
-      top: 0px;
-      left: 0px;
-      right: 0px;
-}*/
 
 #styling{
   height: 500px;

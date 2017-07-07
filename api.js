@@ -14,67 +14,66 @@ $(document).ready(function() {
     var database = firebase.database();
     var ingredientName = "";
   
-  var eatMe;
+    var eatMe;
 
   //on-click function that calls EVERYTHING
   $("#add-ingredient-btn").on("click", function(){
     event.preventDefault();
     eatMe = $("#ingredient-name-input").val().trim();
+    $("#searchTitle").html("<h1>" + eatMe + "</h1>");
     backgroundChange();
     youTubeCall();
     wikiCall();
     firebaseData();
     $("#ingredient-name-input").val("");
-
-    if ( eatMe == '') {
-      $('#inputError').text('**Please enter an ingredient**');
-      return false;
-    }
   });
   
 
 
   //change background picture function
   function backgroundChange() {
+    $(".page_one").empty();
     $("body").css("background-image", 'url("assets/images/concrete-texture.png")');
+    
   }
+
+
+
   //YouTube API Call & iFrame creation
     function youTubeCall() {
       
-      $(".videoResults").empty();
+    $("#videoResults").empty();
+
     var queryURL = "https:www.googleapis.com/youtube/v3/search?&part=snippet&q=" + eatMe + "+recipe&key=AIzaSyCqtkizKR5dTv4AP90rXLCGNG9-LLIrG_Y";
    
     $.ajax ({
       url: queryURL,
-      method: "GET"
-    }).done(function(response){
-      for (var i = 0; i < response.items.length; i++) {
-      
-        var item = response.items[i];
-        var videoId = item.id.videoId;
-
-        console.log(item.snippet.title + " " + item.id.videoId);
-        var videoUrl = "https://www.youtube.com/embed/" + videoId;
-        var videoNum = "video" + i;
-        $("#video" + i).attr("src", videoUrl);
-
-        //iFrame creation and apprending to results div 
-        var videoPlayer = $("<iframe class='video w100' width='640' height='360' src='#' frameborder='0' allowfullscreen style='margin:20px'>");
+      method: "GET",
+      success: function(response){
+        for (var i = 0; i < response.items.length; i++) {
         
-        videoPlayer.attr("id", videoNum);
+          var item = response.items[i];
+          var videoId = item.id.videoId;
 
-        videoPlayer.attr("src", videoUrl);
+          // console.log(item.snippet.title + " " + item.id.videoId);
+          var videoUrl = "https://www.youtube.com/embed/" + videoId;
+          var videoNum = "video" + i;
+          $("#video" + i).attr("src", videoUrl);
 
-        $(".videoResults").append(videoPlayer);
-      };
+          //iFrame creation and apprending to results div 
+          var videoPlayer = $("<iframe class='video w100' width='640' height='360' src='#' frameborder='0' allowfullscreen style='margin:20px'>");
+          
+          videoPlayer.attr("id", videoNum);
 
-      if ( eatMe == false) {
-        $('#youTubeError').text('**No ingredient found by that name. Please try another.**');
-        return false;
+          videoPlayer.attr("src", videoUrl);
+
+          $("#videoResults").append(videoPlayer);
+        };
+          
       }
-    
-    });  
-  }; 
+      
+    }); 
+  };
 
   //mediaWiki call & results display
   function wikiCall() {
@@ -92,22 +91,17 @@ $(document).ready(function() {
       $.ajax( {
           url: wikiURL,
           dataType: 'jsonp',
-          success: function(response) {
+          success: function(data, status, jqXHR) {
              // console.log(response);
               for (var prop in response.query.pages) {
-                  console.log(prop);
+                  // console.log(prop);
                   var result = response.query.pages[prop];
-                  console.log(result);
-                  $("#searchResults").html(result.extract);
+                  // console.log(result);
+                  $("#wikiResults").html(result.extract);
               };
-              // if wiki error...
-              if ( eatMe == false) {
-                $('#wikiError').text('**No ingredient found by that name. Please try another.**');
-                return false;
-              }
           }
       });
-  }
+  };
   
 
   //logging search term into Firebase
@@ -124,5 +118,9 @@ $(document).ready(function() {
             $("#ingredient-name-input").html(childSnapshot.val().ingredientName);
         });
     };
-})
+  });
+
+
+
+
 
