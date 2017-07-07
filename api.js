@@ -10,6 +10,7 @@ $(document).ready(function() {
     };
 
    firebase.initializeApp(config);
+
     //universal variables
     var database = firebase.database();
     var ingredientName = "";
@@ -45,7 +46,7 @@ $(document).ready(function() {
    $(".videoResults").empty();
 
    var queryURL = "https:www.googleapis.com/youtube/v3/search?&part=snippet&q=" + eatMe + "+recipe&key=AIzaSyCqtkizKR5dTv4AP90rXLCGNG9-LLIrG_Y";
-  
+ 
     $.ajax ({
       url: queryURL,
       method: "GET"
@@ -56,6 +57,7 @@ $(document).ready(function() {
         var videoId = item.id.videoId;
 
        console.log(item.snippet.title + " " + item.id.videoId);
+ 
         var videoUrl = "https://www.youtube.com/embed/" + videoId;
         var videoNum = "video" + i;
         $("#video" + i).attr("src", videoUrl);
@@ -126,3 +128,4 @@ $(document).ready(function() {
       }
   };
 });
+
