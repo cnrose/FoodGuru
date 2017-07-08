@@ -57,7 +57,7 @@ $(document).ready(function() {
       
    $("#videoResults").empty();
 
-   var queryURL = "https:www.googleapis.com/youtube/v3/search?&part=snippet&q=" + eatMe + "+recipe&key=AIzaSyCqtkizKR5dTv4AP90rXLCGNG9-LLIrG_Y";
+   var queryURL = "https://www.googleapis.com/youtube/v3/search?&part=snippet&q=" + eatMe + "+recipe&key=AIzaSyCqtkizKR5dTv4AP90rXLCGNG9-LLIrG_Y";
  
     $.ajax ({
       url: queryURL,
