@@ -9,34 +9,51 @@ $(document).ready(function() {
         messagingSenderId: "810775232856"
     };
 
-    firebase.initializeApp(config);
+   firebase.initializeApp(config);
+
     //universal variables
     var database = firebase.database();
     var ingredientName = "";
   
+<<<<<<< HEAD
     var eatMe;
+=======
+ var eatMe;
+>>>>>>> 1bbca12f3e251ae2a8bc95c17fafdb95e646cecc
 
-  //on-click function that calls EVERYTHING
+ // Test the input and retrieve results
   $("#add-ingredient-btn").on("click", function(){
     event.preventDefault();
     eatMe = $("#ingredient-name-input").val().trim();
+<<<<<<< HEAD
     $("#searchTitle").html("<h1>" + eatMe + "</h1>");
     backgroundChange();
     youTubeCall();
     wikiCall();
     firebaseData();
     $("#ingredient-name-input").val("");
+=======
+
+   if(searchValidation(eatMe)){
+      youTubeCall();
+      wikiCall();
+      recordSearchTerm(eatMe);
+    } else {
+      $("#ingredient-name-input").val("");   
+    }
+>>>>>>> 1bbca12f3e251ae2a8bc95c17fafdb95e646cecc
   });
   
 
 
-  //change background picture function
+ //change background picture function
   function backgroundChange() {
     $(".page_one").empty();
     $("body").css("background-image", 'url("assets/images/concrete-texture.png")');
     
   }
 
+<<<<<<< HEAD
 
 
   //YouTube API Call & iFrame creation
@@ -74,9 +91,48 @@ $(document).ready(function() {
       
     }); 
   };
+=======
+ //YouTube API Call & iFrame creation
+  function youTubeCall() {
+      
+   $(".videoResults").empty();
 
-  //mediaWiki call & results display
+   var queryURL = "https:www.googleapis.com/youtube/v3/search?&part=snippet&q=" + eatMe + "+recipe&key=AIzaSyCqtkizKR5dTv4AP90rXLCGNG9-LLIrG_Y";
+ 
+    $.ajax ({
+      url: queryURL,
+      method: "GET"
+    }).done(function(response){
+      for (var i = 0; i < response.items.length; i++) {
+      
+       var item = response.items[i];
+        var videoId = item.id.videoId;
+
+       console.log(item.snippet.title + " " + item.id.videoId);
+ 
+        var videoUrl = "https://www.youtube.com/embed/" + videoId;
+        var videoNum = "video" + i;
+        $("#video" + i).attr("src", videoUrl);
+
+       //iFrame creation and appending to results div
+        var videoPlayer = $("<iframe class='video w100' width='640' height='360' src='#' frameborder='0' allowfullscreen style='margin:20px'>");
+        
+       videoPlayer.attr("id", videoNum);
+
+       videoPlayer.attr("src", videoUrl);
+        
+       $(".videoResults").append(videoPlayer);
+
+
+     };
+    
+   });  
+ };
+>>>>>>> 1bbca12f3e251ae2a8bc95c17fafdb95e646cecc
+
+ //mediaWiki call & results display
   function wikiCall() {
+<<<<<<< HEAD
       var wikiURL = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=500&titles=" + eatMe + "&format=json";
       function wikiWiki() {
           wikiURL += '?' + $.param({
@@ -102,8 +158,58 @@ $(document).ready(function() {
           }
       });
   };
-  
+=======
+    var wikiURL = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=500&titles=" + eatMe + "&format=json";
+    function wikiWiki() {
+      wikiURL += '?' + $.param({
+        'action' : 'query',
+        'search' : $("#ingredient-name-input"),
+        'prop'  : 'info',
+        'format' : 'json',
+        'limit' : 10
+      });
+    };
 
+   $.ajax({
+      url: wikiURL,
+      dataType: 'jsonp',
+      success: function(response) {
+        console.log(response);
+        for (var prop in response.query.pages) {
+          console.log(prop);
+          var result = response.query.pages[prop];
+          console.log(result);
+          $("#searchResults").html(result.extract);
+        };
+      }
+    });
+  }
+>>>>>>> 1bbca12f3e251ae2a8bc95c17fafdb95e646cecc
+  
+ //logging search term into Firebase
+  function recordSearchTerm(ingredientName) {
+   database.ref().push({
+      name: ingredientName
+    });
+
+   database.ref().on("child_added", function(childSnapshot, prevChildKey) {
+      var ingredientName = childSnapshot.val().name;
+      $("#ingredient-name-input").html(childSnapshot.val().ingredientName);
+    });
+  };
+
+ // Validate that we have only 1 alpha character word and it is less than 30 characters long.
+  function searchValidation(searchText) {
+      var letters = /^[A-Za-z]+$/;
+      if(searchText.match(letters) && searchText.length < 30){
+        return true;
+      } else {
+        return false;
+      }
+  };
+});
+
+<<<<<<< HEAD
   //logging search term into Firebase
     function firebaseData() {
         ingredientName = $("#ingredient-name-input").val().trim();
@@ -123,4 +229,6 @@ $(document).ready(function() {
 
 
 
+=======
+>>>>>>> 1bbca12f3e251ae2a8bc95c17fafdb95e646cecc
 
