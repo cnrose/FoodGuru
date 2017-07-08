@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <title>Food Guru</title>
+    <title>FOOD GURU</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Arapey|Cinzel|Cinzel+Decorative|Expletus+Sans|Julius+Sans+One|Megrim|Montserrat|Orbitron|Overlock+SC|Raleway|Roboto+Condensed|Rock+Salt|Zilla+Slab" rel="stylesheet">
@@ -25,39 +24,44 @@
         </nav>
       </div>
     </header>
+      <script src="api.js"></script>
 
+    <div class="container">
 
-   <script src="api.js"></script>
-<div class="container">
+    <div class="page_one">
+      
+      <div id="howTo" class="col-md-6">
+        <h2>How to use FOOD GURU:</h2>
+        <p>Enter your favorite ingredient into the search bar. Voila! You will now find some background and scientific information on your ingredient and some amazing YouTube videos guiding you through recipes utilizing the ingredient.</p>
+      </div>
+    </div>
 
-  <div id="logo" class="col-md-12">
+    </div>
 
-  <div class="row">
-      <div id="inputError"></div>
-      <div id="wikiError"></div>
-      <div class="col-sm-5" id="WIKI-BOX">
-        <br>
-        <!-- First panel is for handling the search parameters -->
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+          <div id="searchTitle"></div>
+          <div id="searchResults"></div>
+        </div> 
+
+        <div class="row">
+          <div class="col-sm-12"> 
+            <div id="videoResults"></div>
           </div>
         </div>
     </div>
-    <div id="howTo" class="col-md-6 col-md-offset-3">
-      <h2>How to use FOOD GURU:</h2>
-      <p>Enter your favorite ingredient into the search bar. Voila! You will now find some background and scientific information on your ingredient and some amazing YouTube videos guiding you through recipes utilizing the ingredient.</p>
-    </div>
-    <div id="youTubeError"></div>
-    <div class="col-sm-2" ID="blank">
 
-        <br>
-        <!-- First panel is for handling the search parameters -->  
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+          <div id="top-search-terms"></div>
         </div>
+      </div> 
 
-  </div>
+    
+
 <footer>
-  <p>Copyright 2017: Food Guru DEVs</p>
-  <p>Contact: Your Plate.com</a>.</p>
+  <p id="foot">Copyright 2017: Food Guru DEVs. Contact: Your Plate.com</p>
 </footer>
-
-    <script type="text/javascript" src="./api.js"></script>
+    <script type="text/javascript" src="api.js"></script>
   </body>
 </html>
