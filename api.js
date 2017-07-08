@@ -27,7 +27,7 @@ $(document).ready(function() {
       wikiCall();
       recordSearchTerm(eatMe);
     } else {
-      $("#ingredient-name-input").val("");   
+      $("#ingredient-name-input").val("Please use letters!");   
     }
   });
   
