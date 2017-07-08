@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>FOOD GURU</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <title>Food Guru</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Arapey|Cinzel|Cinzel+Decorative|Expletus+Sans|Julius+Sans+One|Megrim|Montserrat|Orbitron|Overlock+SC|Raleway|Roboto+Condensed|Rock+Salt|Zilla+Slab" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arapey|Cinzel|Cinzel+Decorative|Expletus+Sans|Julius+Sans+One|Megrim|Montserrat|Orbitron|Overlock+SC|Raleway|Roboto+Condensed|Rock+Salt|Zilla+Slab"
+      rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./api.js"></script>
   </head>
   <body>
     <header>
@@ -23,7 +28,6 @@
         <button type="submit" class="btn btn-default" id="add-ingredient-btn">Search</button>
       </div>
     </header>
-      <script src="api.js"></script>
 
     <div class="container">
 
@@ -61,6 +65,23 @@
 <footer>
   <p id="foot">Copyright 2017: Food Guru DEVs. Contact: Your Plate.com</p>
 </footer>
-    <script type="text/javascript" src="api.js"></script>
   </body>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Search Rules</h4>
+        </div>
+        <div class="modal-body">
+          You are allowed to search on a single word using letters only.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </html>

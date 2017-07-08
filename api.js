@@ -30,9 +30,10 @@ $(document).ready(function() {
       wikiCall();
       recordSearchTerm(eatMe);
     } else {
-      $("#ingredient-name-input").val("");   
+      $('#myModal').modal('show');
+         
     }
-
+    $("#ingredient-name-input").val("");
   });
 
  //change background picture function
@@ -57,7 +58,7 @@ $(document).ready(function() {
       
    $("#videoResults").empty();
 
-   var queryURL = "https:www.googleapis.com/youtube/v3/search?&part=snippet&q=" + eatMe + "+recipe&key=AIzaSyCqtkizKR5dTv4AP90rXLCGNG9-LLIrG_Y";
+   var queryURL = "https://www.googleapis.com/youtube/v3/search?&part=snippet&q=" + eatMe + "+recipe&key=AIzaSyCqtkizKR5dTv4AP90rXLCGNG9-LLIrG_Y";
  
     $.ajax ({
       url: queryURL,
