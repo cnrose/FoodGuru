@@ -39,10 +39,10 @@ $(document).ready(function() {
  function backgroundChange() {
     $("header").css({"background-repeat": 'repeat' });
     $("header").css({"background-size": 'auto' });
-    $("header").css("background-image", 'url("http://i.imgur.com/8bGVvQl.png")');
+    $("header").css("background-image", 'url("https://i.imgur.com/8bGVvQl.png")');
     $("body").css({"background-repeat": 'repeat' });
     $("body").css({"background-size": 'auto' });
-    $("body").css("background-image", 'url("http://i.imgur.com/8bGVvQl.png")');
+    $("body").css("background-image", 'url("https://i.imgur.com/8bGVvQl.png")');
   }
   //display hide and show divs
   function showResults() {
