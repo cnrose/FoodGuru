@@ -30,9 +30,10 @@ $(document).ready(function() {
       wikiCall();
       recordSearchTerm(eatMe);
     } else {
-      $("#ingredient-name-input").val("Please use letters!");   
-    }
 
+      $('#myModal').modal('show');
+    }
+    $("#ingredient-name-input").val("");
   });
 
  //change background picture function
