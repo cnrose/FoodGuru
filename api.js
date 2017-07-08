@@ -30,8 +30,8 @@ $(document).ready(function() {
       wikiCall();
       recordSearchTerm(eatMe);
     } else {
+
       $('#myModal').modal('show');
-         
     }
     $("#ingredient-name-input").val("");
   });
@@ -40,10 +40,10 @@ $(document).ready(function() {
  function backgroundChange() {
     $("header").css({"background-repeat": 'repeat' });
     $("header").css({"background-size": 'auto' });
-    $("header").css("background-image", 'url("http://i.imgur.com/8bGVvQl.png")');
+    $("header").css("background-image", 'url("https://i.imgur.com/8bGVvQl.png")');
     $("body").css({"background-repeat": 'repeat' });
     $("body").css({"background-size": 'auto' });
-    $("body").css("background-image", 'url("http://i.imgur.com/8bGVvQl.png")');
+    $("body").css("background-image", 'url("https://i.imgur.com/8bGVvQl.png")');
   }
   //display hide and show divs
   function showResults() {
@@ -71,7 +71,7 @@ $(document).ready(function() {
         var videoUrl = "https://www.youtube.com/embed/" + videoId;
         var videoNum = "video" + i;
         $("#video" + i).attr("src", videoUrl);
-
+        
        //iFrame creation and appending to results div
         var videoPlayer = $("<iframe class='video w100' width='640' height='360' src='#' frameborder='0' allowfullscreen style='margin:20px'>");
         
